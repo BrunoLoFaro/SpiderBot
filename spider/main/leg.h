@@ -1,33 +1,29 @@
-#ifndef Leg_h
-#define Leg_h
-
-#include <Servo.h>
-
 class Leg {
   public:
     bool IsUpsideDown;
-    int Pin;
-    Servo servo;
+    int UpDownPin;
+    int RotatePin;
+    Servo upDownServo;
+    Servo rotateServo;
     
-    Leg(int pin, bool IsUpsideDown) {  // Constructor method
-      Pin = pin;
-      IsUpsideDown = IsUpsideDown;
-    }
+    Leg(int upDownPin, int rotatePin, bool isUpsideDown) : 
+      UpDownPin(upDownPin), RotatePin(rotatePin), IsUpsideDown(isUpsideDown) {} // Constructor method
     
     void Set(){
-          servo.attach(Pin);  // Attach the servo to the pin
+      upDownServo.attach(UpDownPin);  // Attach the up/down servo to the pin
+      rotateServo.attach(RotatePin); // Attach the rotate servo to the pin
     }
 
-    void Move(int angle) {  // Method to move the leg to a specific angle
+    void Move(int upDownAngle, int rotateAngle) {  // Method to move the leg to a specific up/down angle and rotate angle
       if (IsUpsideDown) {
-        angle = 180 - angle;  // Flip the angle if the leg is upside down
+        upDownAngle = 180 - upDownAngle;  // Flip the up/down angle if the leg is upside down
+        rotateAngle = 180 - rotateAngle;  // Flip the rotate angle if the leg is upside down
       }
-      servo.write(angle);  // Move the servo to the specified angle
+      upDownServo.write(upDownAngle);   // Move the up/down servo to the specified up/down angle
+      rotateServo.write(rotateAngle);   // Move the rotate servo to the specified rotate angle
     }
     
     void Flip() {  // Method to flip the leg upside down
       IsUpsideDown = !IsUpsideDown;
     }
 };
-
-#endif
