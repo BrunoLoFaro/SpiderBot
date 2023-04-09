@@ -24,7 +24,7 @@ class Leg {
     
     void MoveUpDown(int angle) {
       if (IsUpsideDown) {
-        angle = 180 - angle;
+        angle = 90 - angle;
       }
       servo_up_down.write(angle);
     }

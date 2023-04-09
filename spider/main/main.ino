@@ -1,21 +1,27 @@
 #include "Leg.h"
 
-Leg leg1(9, true);  // Instantiate the first leg object with pin 9
-Leg leg2(10, false);  // Instantiate the second leg object with pin 10
+// Define the pin numbers for the servos
+int leg_pin_up_down = 9;
+int leg_pin_rotation = 10;
+
+// Create a Leg object
+Leg leg(leg_pin_up_down, leg_pin_rotation, false);
 
 void setup() {
-  // Nothing to do here
-    leg1.Set();  // Instantiate the first leg object with pin 9
-    leg2.Set();  // Instantiate the second leg object with pin 10
+  // Attach the servos to the pins
+  leg.Set();
 }
 
 void loop() {
-    leg1.Move(50);
-    delay(100);
-    leg2.Move(50);
-    delay(100);
-    leg1.Move(70);
-    delay(100);
-    leg2.Move(70);
-    delay(100);
+  // Move the leg up and down to a 90 degree angle
+  leg.MoveUpDown(20);
+  delay(500);
+  leg.MoveRotation(60);
+
+  delay(500);
+    leg.MoveUpDown(60);
+    delay(500);
+    leg.MoveRotation(20);
+
+  delay(1000);
 }
