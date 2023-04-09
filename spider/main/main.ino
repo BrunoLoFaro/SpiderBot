@@ -1,33 +1,19 @@
-#include "Spider.h"
-
-Spider spider(9, 10, 11, 12, true);  // Instantiate a Spider object with four legs, all initially upside down
-
+#include "Leg.h"
+  Leg leg1(9, true);  // Instantiate the first leg object with pin 9
+Leg leg2(10, false);  // Instantiate the second leg object with pin 10
 void setup() {
-  spider.SetLegs();  // Attach servos to all legs
+  // Nothing to do here
+    leg1.Set();  // Instantiate the first leg object with pin 9
+    leg2.Set();  // Instantiate the second leg object with pin 10
 }
 
 void loop() {
-  // Move all legs from 0 to 180 degrees in steps of 10 degrees
-  for (int i = 0; i <= 180; i += 10) {
-    spider.leg1.Move(i);
-    spider.leg2.Move(i);
-    spider.leg3.Move(i);
-    spider.leg4.Move(i);
-    delay(50);
-  }
-  // Move all legs from 180 to 0 degrees in steps of 10 degrees
-  for (int i = 180; i >= 0; i -= 10) {
-    spider.leg1.Move(i);
-    spider.leg2.Move(i);
-    spider.leg3.Move(i);
-    spider.leg4.Move(i);
-    delay(50);
-  }
-  // Flip all legs upside down
-  spider.leg1.Flip();
-  spider.leg2.Flip();
-  spider.leg3.Flip();
-  spider.leg4.Flip();
-  // Wait for 1 second before continuing
-  delay(1000);
+    leg1.Move(50);
+    delay(100);
+    leg2.Move(50);
+    delay(100);
+    leg1.Move(70);
+    delay(100);
+    leg2.Move(70);
+    delay(100);
 }
