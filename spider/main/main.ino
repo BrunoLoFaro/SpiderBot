@@ -1,6 +1,8 @@
 #include "Leg.h"
-  Leg leg1(9, true);  // Instantiate the first leg object with pin 9
+
+Leg leg1(9, true);  // Instantiate the first leg object with pin 9
 Leg leg2(10, false);  // Instantiate the second leg object with pin 10
+
 void setup() {
   // Nothing to do here
     leg1.Set();  // Instantiate the first leg object with pin 9

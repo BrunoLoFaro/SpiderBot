@@ -6,26 +6,34 @@
 class Leg {
   public:
     bool IsUpsideDown;
-    int Pin;
-    Servo servo;
+    int Pin_Up_Down;
+    int Pin_Rotation;
+    Servo servo_up_down;
+    Servo servo_rotation;
     
-    Leg(int pin, bool IsUpsideDown) {  // Constructor method
-      Pin = pin;
-      IsUpsideDown = IsUpsideDown;
+    Leg(int pin_up_down, int pin_rotation, bool is_upside_down) {
+      Pin_Up_Down = pin_up_down;
+      Pin_Rotation = pin_rotation;
+      IsUpsideDown = is_upside_down;
     }
     
-    void Set(){
-          servo.attach(Pin);  // Attach the servo to the pin
+    void Set() {
+      servo_up_down.attach(Pin_Up_Down);
+      servo_rotation.attach(Pin_Rotation);
     }
-
-    void Move(int angle) {  // Method to move the leg to a specific angle
+    
+    void MoveUpDown(int angle) {
       if (IsUpsideDown) {
-        angle = 180 - angle;  // Flip the angle if the leg is upside down
+        angle = 180 - angle;
       }
-      servo.write(angle);  // Move the servo to the specified angle
+      servo_up_down.write(angle);
     }
     
-    void Flip() {  // Method to flip the leg upside down
+    void MoveRotation(int angle) {
+      servo_rotation.write(angle);
+    }
+    
+    void Flip() {
       IsUpsideDown = !IsUpsideDown;
     }
 };
