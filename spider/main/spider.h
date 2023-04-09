@@ -7,9 +7,14 @@ class Spider {
     Leg leg3;
     Leg leg4;
     
-    Spider(int pin1, int pin2, int pin3, int pin4, bool isUpsideDown) : 
-      leg1(pin1, isUpsideDown), leg2(pin2, isUpsideDown), 
-      leg3(pin3, isUpsideDown), leg4(pin4, isUpsideDown) {}
+Spider(int pin1_up_down, int pin1_rotation, bool isUpsideDown1,
+       int pin2_up_down, int pin2_rotation, bool isUpsideDown2,
+       int pin3_up_down, int pin3_rotation, bool isUpsideDown3,
+       int pin4_up_down, int pin4_rotation, bool isUpsideDown4) :
+      leg1(pin1_up_down, pin1_rotation, isUpsideDown1),
+      leg2(pin2_up_down, pin2_rotation, isUpsideDown2),
+      leg3(pin3_up_down, pin3_rotation, isUpsideDown3),
+      leg4(pin4_up_down, pin4_rotation, isUpsideDown4) {}
     
     void SetLegs() {
       leg1.Set();
