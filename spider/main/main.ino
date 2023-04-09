@@ -28,47 +28,8 @@ void setup() {
 }
 
 void loop() {
-  // Do something with the spider legs
-  spider.leg1.MoveUpDown(30);
-  delay(500);
-  spider.leg1.MoveRotation(30);
-  delay(500);
-
-  spider.leg2.MoveUpDown(30);
-  delay(500);
-  spider.leg2.MoveRotation(30);
-  delay(500);
-
-  spider.leg3.MoveUpDown(30);
-  delay(500);
-  spider.leg3.MoveRotation(30);
-  delay(500);
-
-  spider.leg4.MoveUpDown(30);
-  delay(500);
-  spider.leg4.MoveRotation(30);
-  delay(500);
-
-  spider.leg1.MoveUpDown(90);
-  delay(500);
-  spider.leg1.MoveRotation(90);
-  delay(500);
-
-  spider.leg2.MoveUpDown(90);
-  delay(500);
-  spider.leg2.MoveRotation(90);
-  delay(500);
-
-  spider.leg3.MoveUpDown(90);
-  delay(500);
-  spider.leg3.MoveRotation(90);
-  delay(500);
-
-  spider.leg4.MoveUpDown(90);
-  delay(500);
-  spider.leg4.MoveRotation(90);
-  delay(500);
-
-  delay(1000);
+  // make the spider walk
+  spider.Walk(4)
+  delay(2000);
 }
 
